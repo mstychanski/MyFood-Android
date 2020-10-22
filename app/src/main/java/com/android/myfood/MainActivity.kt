@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     internal lateinit var adapter:FirebaseRecyclerAdapter<StorageItem, ItemViewHolder>
     private lateinit var ref: DatabaseReference
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -102,9 +101,9 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onStart() {
+        super.onStart()
         if(adapter != null)
             adapter.stopListening()
-        super.onStart()
     }
 
     override fun onStop() {
