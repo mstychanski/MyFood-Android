@@ -1,29 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
+<!--    <LinearLayout-->
+<!--        android:id="@+id/app_bar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/title"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="6dp"-->
+<!--            android:padding="6dp"-->
+<!--            android:text="My food"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="74px"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <com.google.android.material.button.MaterialButtonToggleGroup-->
+<!--            android:id="@+id/toggle_group"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:layout_width="6dp"-->
+<!--                android:layout_height="6dp"-->
+<!--                android:text="all" />-->
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:layout_width="6dp"-->
+<!--                android:layout_height="6dp"-->
+<!--                android:text="fridge" />-->
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="pantry" />-->
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="fridge" />-->
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="freezer" />-->
+<!--        </com.google.android.material.button.MaterialButtonToggleGroup>-->
+
+
+
+<!--    </LinearLayout>-->
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:padding="4dp"
-        tools:listitem="@layout/storage_item" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:focusableInTouchMode="false"
-        app:tint="@color/white"
-        android:src="@drawable/ic_baseline_add" />
+        android:clipToPadding="false"
+
+        android:padding="6dp"
+        tools:listitem="@layout/storage_item" />
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/add_btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_above="@id/bottom_navigation"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:focusableInTouchMode="false"-->
+<!--        app:tint="@color/white"-->
+<!--        android:src="@drawable/ic_baseline_add" />-->
+
+<!--    <FrameLayout-->
+<!--        android:id="@+id/fl_wrapper"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_above="@id/bottom_navigation" />-->
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottom_navigation"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            app:menu="@menu/bottom_navigation"-->
+<!--            android:background="?android:attr/windowBackground"-->
+<!--            app:itemBackground="@color/cardview_light_background"-->
+<!--            app:itemIconTint="@color/darkgray"-->
+<!--            app:itemTextColor="@color/black"-->
+<!--            android:backgroundTint="@color/black"-->
+
+<!--            />-->
 
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

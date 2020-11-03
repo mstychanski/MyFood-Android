@@ -41,42 +41,6 @@
           ]
         }
       }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1067895374259:android:fcaf8b57917cb0417c0bc6",
-        "android_client_info": {
-          "package_name": "com.example.myfood"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1067895374259-vr8o8cp1rjsejn5l12ng0ghov0ram63l.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAJhb4CsRNT-q7D6nxbWFs8RzNKXm6y--A"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1067895374259-vr8o8cp1rjsejn5l12ng0ghov0ram63l.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1067895374259-ghrsg4arrevf5ikjuonfmtf2g2c053kj.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "nikitagulak.myFood"
-              }
-            }
-          ]
-        }
-      }
     }
   ],
   "configuration_version": "1"

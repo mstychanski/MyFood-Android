@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan Barcode"
+        android:layout_gravity="center_horizontal"
+        android:textSize="24dp"
+        android:padding="18dp"
+        />
+    <EditText
+        android:id="@+id/new_product_name"
+        android:hint="Product Name"
+        android:inputType="text"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/new_product_weight"
+            android:hint="Product Weight"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/new_measure_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:checkedButton="@+id/grams"
+            app:singleSelection="true">
+            <androidx.appcompat.widget.AppCompatToggleButton
+                android:id="@+id/grams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grams"/>
+            <androidx.appcompat.widget.AppCompatToggleButton
+                android:id="@+id/pieces"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pieces"/>
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+    </LinearLayout>
+</LinearLayout>
