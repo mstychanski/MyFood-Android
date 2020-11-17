@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp">
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp">
 
     <RelativeLayout
+
+        android:id="@+id/item_root"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="6dp"
-        >
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:background="?attr/selectableItemBackground"
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/product_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Title"
             android:textColor="@android:color/black"
-            android:text="Name"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/product_amount"
-            android:text="Amount"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/product_name" />
+            android:layout_marginTop="4dp"
+            android:text="Description"
+            android:layout_below="@+id/product_name"/>
 
-        <TextView
-            android:id="@+id/measure_type"
-            android:text="measureType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/product_name"
-            android:layout_toEndOf="@id/product_amount"
-            android:paddingHorizontal="2dp" />
 
         <ImageView
             android:layout_width="20dp"
@@ -57,6 +60,70 @@
             android:layout_marginEnd="13dp"
             android:text="Line 3"
             android:textColor="@android:color/black" />
-
     </RelativeLayout>
+
 </androidx.cardview.widget.CardView>
+
+
+<!--<androidx.cardview.widget.CardView-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_margin="4dp">-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/item_root"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:padding="6dp"-->
+<!--        >-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/product_name"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:text="Name"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/product_amount"-->
+<!--            android:text="Amount"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/product_name" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/measure_type"-->
+<!--            android:text="measureType"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/product_name"-->
+<!--            android:layout_toEndOf="@id/product_amount"-->
+<!--            android:paddingHorizontal="2dp" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="20dp"-->
+
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginEnd="2dp"-->
+<!--            android:layout_toStartOf="@id/product_expire"-->
+<!--            android:src="@mipmap/clock_gray_round" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/product_expire"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/product_name"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginTop="-11dp"-->
+<!--            android:layout_marginEnd="13dp"-->
+<!--            android:text="Line 3"-->
+<!--            android:textColor="@android:color/black" />-->
+
+<!--    </LinearLayout>-->
+<!--</androidx.cardview.widget.CardView>-->

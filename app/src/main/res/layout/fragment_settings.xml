@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    tools:context=".settings.SettingsFragment">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_logout"
+        android:layout_gravity="center"
+        android:layout_width="240dp"
+        android:layout_height="80dp"
+        android:onClick="onClick"
+        android:text="@string/log_out" />
+
+</FrameLayout>
