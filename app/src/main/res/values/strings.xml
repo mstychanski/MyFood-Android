@@ -13,4 +13,6 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="app_descprition">The app will help you to easily manage all the gricerues you have at home and not waste neither food nor time :)</string>
+    <string name="welcome_title">Welcome</string>
 </resources>
