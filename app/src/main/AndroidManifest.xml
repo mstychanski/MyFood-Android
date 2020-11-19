@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/main_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFood">
+        <activity android:name=".login.ui.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".login.ui.LoginActivity">
             <intent-filter>
-
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -19,7 +25,6 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".storage.AddProductActivity" />
-
     </application>
 
 </manifest>

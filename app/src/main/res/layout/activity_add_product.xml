@@ -8,6 +8,18 @@
     android:orientation="vertical"
     android:layout_margin="16dp">
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:padding="6dp"
+        android:text="Add Product"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_scanner"
         android:layout_width="match_parent"
@@ -46,23 +58,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/Widget.AppCompat.EditText"
-            android:layout_marginRight="8dp"/>
+            android:layout_marginRight="8dp"
+            android:inputType="number"/>
 
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:id="@+id/form_unit_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:singleSelection="true"
+            app:selectionRequired="true"
             app:checkedButton="@+id/form_unit_gram">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/form_unit_gram"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="grams"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/form_unit_amount"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="pieces"/>
@@ -84,10 +100,12 @@
         android:layout_height="wrap_content"
         android:gravity="fill_horizontal"
         app:singleSelection="true"
-        app:selectionRequired="true">
+        app:selectionRequired="true"
+        app:checkedButton="@+id/form_fridge">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/form_fridge"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,6 +113,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/form_pantry"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,6 +121,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/form_freezer"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,7 +139,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/form_expiry_date"
-        android:clickable="true" />
+        android:clickable="true"
+        android:inputType="date"
+        android:hint="yyyy-mm-dd"/>
 
     <RelativeLayout
 

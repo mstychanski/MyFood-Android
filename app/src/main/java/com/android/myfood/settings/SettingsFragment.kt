@@ -10,6 +10,7 @@ import com.android.myfood.MainActivity
 import com.android.myfood.R
 import com.android.myfood.login.ui.LoginActivity
 import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseAuth
 
 
 class SettingsFragment : Fragment() {
@@ -31,11 +32,8 @@ class SettingsFragment : Fragment() {
 
     fun onClick(v: View) {
         if (v.id == R.id.btn_logout) {
-            AuthUI.getInstance()
-                .signOut(v.context)
-                .addOnCompleteListener { // user is now signed out
-                    startActivity(Intent(activity, LoginActivity::class.java))
-                }
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(activity, LoginActivity::class.java))
         }
     }
 

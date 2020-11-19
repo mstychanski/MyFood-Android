@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="MyTheme" paarent="AppTheme">
+    <style name="MyTheme" parent="Theme.MyFood">
         <item name="android:windowBackground">@android:color/white</item>
     </style>
 

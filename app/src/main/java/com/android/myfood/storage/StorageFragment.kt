@@ -49,6 +49,7 @@ class StorageFragment : Fragment() {
         mRecyclerView?.setHasFixedSize(true)
         mRecyclerView?.layoutManager = LinearLayoutManager(context)
 
+
         itemList = arrayListOf<StorageItem>()
 
         var uid = FirebaseAuth.getInstance().currentUser?.uid
@@ -63,15 +64,17 @@ class StorageFragment : Fragment() {
 
             override fun onDataChange(p0: DataSnapshot) {
 
-
                 if(p0!!.exists()){
-
+                    if(itemList!!.isNotEmpty()){
+                        itemList!!.clear()
+                    }
                     for (h in p0.children){
                         val newItem = h.getValue(StorageItem::class.java)
                         itemList?.add(newItem!!)
                     }
 
                     val adapter = StorageAdapter(context!!, itemList!!)
+
                     mRecyclerView?.setAdapter(adapter)
 
                 }

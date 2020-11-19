@@ -54,5 +54,4 @@ dependencies {
     implementation "com.firebaseui:firebase-ui-auth:6.3.0"
 
 
-
 }
