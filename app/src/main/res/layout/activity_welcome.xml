@@ -41,9 +41,11 @@
            android:text="Sign in"/>
 
        <com.google.android.material.button.MaterialButton
+           android:id="@+id/btn_register"
            android:layout_width="match_parent"
            android:layout_height="64dp"
            style="@style/Widget.MaterialComponents.Button"
+
            android:text="Register"
            />
 

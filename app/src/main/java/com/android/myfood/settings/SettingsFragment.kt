@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.android.myfood.MainActivity
 import com.android.myfood.R
 import com.android.myfood.login.ui.LoginActivity
-import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 
 

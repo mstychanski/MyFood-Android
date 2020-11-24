@@ -1,5 +1,6 @@
 package com.android.myfood.storage
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -25,9 +26,12 @@ class StorageFragment : Fragment() {
     var fragmentView : View? = null
     var firedatabase : FirebaseDatabase? = null
     var itemList : ArrayList<StorageItem> ? = null
-    var ref : DatabaseReference? = null
+    private var ref : DatabaseReference ? = null
 
     var mRecyclerView : RecyclerView? =null
+
+    lateinit var dialogBuilder: AlertDialog.Builder
+    lateinit var dialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,4 +98,5 @@ class StorageFragment : Fragment() {
             startActivity(intent)
         }
     }
+
 }

@@ -1,18 +1,13 @@
 package com.android.myfood.storage
 
-import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.Toast
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.android.myfood.Constants.DATABASE_ITEMS
-import com.android.myfood.MainActivity
+import com.android.myfood.HomeActivity
 import com.android.myfood.R
 import com.android.myfood.model.StorageItem
-import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_add_product.*
@@ -64,12 +59,12 @@ class AddProductActivity : AppCompatActivity() {
             }
 
 
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
 
         btn_cancel.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
 
