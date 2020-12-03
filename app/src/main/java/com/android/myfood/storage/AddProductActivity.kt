@@ -58,10 +58,12 @@ class AddProductActivity : AppCompatActivity() {
 
             val checkedUnit = form_unit_type.checkedButtonId
             unit =
-                if(checkedUnit == R.id.form_unit_gram)
-                    "grams"
-                else
-                    "pieces"
+                    when (checkedUnit) {
+                        R.id.form_unit_gram -> "grams"
+                        R.id.form_unit_amount -> "pieces"
+                        R.id.form_unit_ml-> "milliliters"
+                        else -> ""
+                    }
 
             val checkedStoragePlace = form_storage_place.checkedButtonId
             storingPlace =

@@ -68,6 +68,12 @@
             app:singleSelection="true"
             app:selectionRequired="true"
             app:checkedButton="@+id/form_unit_gram">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/form_unit_ml"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ml"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/form_unit_gram"
