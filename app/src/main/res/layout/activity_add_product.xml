@@ -141,7 +141,8 @@
         android:id="@+id/form_expiry_date"
         android:clickable="true"
         android:inputType="date"
-        android:hint="yyyy-mm-dd"/>
+        android:hint="yyyy-mm-dd"
+        android:focusable="false"/>
 
     <RelativeLayout
 

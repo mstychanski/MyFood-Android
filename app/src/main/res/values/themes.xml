@@ -3,20 +3,19 @@
     <style name="Theme.MyFood" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#B3B3B3</item>
-        <item name="colorPrimaryVariant">#EAEAEA</item>
+        <item name="colorPrimaryVariant">#020202</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#4BD89E</item>
+        <item name="colorSecondary">@color/light_green</item>
         <item name="colorSecondaryVariant">#4BD89E</item>
         <item name="colorOnSecondary">#6A6A6A</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">#FBFFFFFF</item>
     </style>
 
-    <style name="MyTheme" parent="Theme.MyFood">
-        <item name="android:windowBackground">@android:color/white</item>
-    </style>
+
 
     <style name="Theme.MyFood.NoActionBar">
         <item name="windowActionBar">false</item>

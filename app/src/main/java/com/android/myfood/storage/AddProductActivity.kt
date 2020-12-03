@@ -1,8 +1,12 @@
 package com.android.myfood.storage
 
+import android.app.DatePickerDialog
+import android.app.DatePickerDialog.OnDateSetListener
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.android.myfood.Constants.DATABASE_ITEMS
 import com.android.myfood.HomeActivity
@@ -11,18 +15,38 @@ import com.android.myfood.storage.model.StorageItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_add_product.*
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class AddProductActivity : AppCompatActivity() {
 
 
+    val calendar = Calendar.getInstance()
+    val year = calendar.get(Calendar.YEAR)
+    val month = calendar.get(Calendar.MONTH)
+    val day = calendar.get(Calendar.DAY_OF_MONTH)
 
 
-
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_product)
 
 
+
+        val date = OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            calendar.set(Calendar.YEAR, year)
+            calendar.set(Calendar.MONTH, monthOfYear)
+            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            updateForm()
+        }
+
+        form_expiry_date.setOnClickListener {
+      DatePickerDialog(this, date, calendar
+              .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+              calendar.get(Calendar.DAY_OF_MONTH)).show()
+  }
 
         btn_save.setOnClickListener {
 
@@ -98,11 +122,12 @@ class AddProductActivity : AppCompatActivity() {
         }
 
 
-
-
     }
 
-
-
+    private fun updateForm() {
+        val myFormat = "yyyy-MM-dd"
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        form_expiry_date.setText(sdf.format(calendar.getTime()))
+    }
 
 }
