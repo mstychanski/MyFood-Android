@@ -1,4 +1,4 @@
-package com.android.myfood.login.ui
+package com.android.myfood.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

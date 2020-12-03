@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.android.myfood.Constants.DATABASE_ITEMS
 import com.android.myfood.HomeActivity
 import com.android.myfood.R
-import com.android.myfood.model.StorageItem
+import com.android.myfood.storage.model.StorageItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_add_product.*
@@ -15,9 +15,13 @@ import kotlinx.android.synthetic.main.activity_add_product.*
 class AddProductActivity : AppCompatActivity() {
 
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_product)
+
 
 
         btn_save.setOnClickListener {
@@ -68,11 +72,36 @@ class AddProductActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btn_scanner.setOnClickListener {
+            val intent = Intent(this, ScannerActivity::class.java)
+            startActivity(intent)
+        }
+
+        if(intent.extras != null)
+        {
+            form_name.hint= intent.getStringExtra("Name")
+            form_weight.hint = intent.getStringExtra("Weight")
+
+//            val unit = intent.getStringExtra("Unit")
+//
+//            when(unit)
+//            {
+//                "g" -> {
+//                    form_unit_type.checkedButtonId = form_unit_gram.id
+//
+//                }
+//
+//
+//            }
+
+
+        }
 
 
 
 
     }
+
 
 
 

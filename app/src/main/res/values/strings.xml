@@ -19,4 +19,11 @@
     <string name="register">Register</string>
     <string name="minimum_password">Password must contain at least 6 characters</string>
     <string name="auth_failed">Authorization failed</string>
+    <string name="product_info_edit">Edit</string>
+    <string name="edit">Edit</string>
+    <string name="close">Close</string>
+    <string name="weight">Weight</string>
+    <string name="place_of_storing">Place of storing</string>
+    <string name="my_food">My food</string>
+    <string name="date_of_expiry">Date of expiry</string>
 </resources>

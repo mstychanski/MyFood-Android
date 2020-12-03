@@ -50,8 +50,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
-    implementation "com.firebaseui:firebase-ui-database:6.3.0"
-    implementation "com.firebaseui:firebase-ui-auth:6.3.0"
-
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+    implementation 'com.beust:klaxon:5.0.1'
 
 }

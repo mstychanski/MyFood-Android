@@ -6,9 +6,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.android.myfood.login.ui.WelcomeActivity
+import com.android.myfood.login.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
-import kotlin.math.sign
 
 class MainActivity : AppCompatActivity() {
 

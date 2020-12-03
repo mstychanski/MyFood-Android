@@ -18,9 +18,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:padding="6dp"
-            android:text="My food"
+            android:text="@string/my_food"
             android:textColor="@color/black"
-            android:textSize="74px"
+            android:textSize="32sp"
             android:textStyle="bold" />
     </LinearLayout>
 

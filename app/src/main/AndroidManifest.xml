@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.android.myfood">
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -9,7 +12,8 @@
         android:roundIcon="@mipmap/main_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFood">
-        <activity android:name=".login.ui.ResetPasswordActivity"></activity>
+        <activity android:name=".storage.ScannerActivity"></activity>
+        <activity android:name=".login.ResetPasswordActivity" />
         <activity
             android:name=".MainActivity"
             android:noHistory="true">
@@ -19,11 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.ui.RegisterActivity" />
-        <activity android:name=".login.ui.WelcomeActivity" />
-        <activity android:name=".login.ui.LoginActivity" />
+        <activity android:name=".login.RegisterActivity" />
+        <activity android:name=".login.WelcomeActivity" />
+        <activity android:name=".login.LoginActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".storage.AddProductActivity" />
+        <activity
+            android:name=".storage.AddProductActivity"
+            android:noHistory="true"/>
     </application>
 
 </manifest>
