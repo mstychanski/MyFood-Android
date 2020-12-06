@@ -10,7 +10,6 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="app_descprition">The app will help you to easily manage all the gricerues you have at home and not waste neither food nor time :)</string>
@@ -27,4 +26,12 @@
     <string name="my_food">My food</string>
     <string name="date_of_expiry">Date of expiry</string>
     <string name="list_name">List Name</string>
+    <string name="to_buy">To Buy</string>
+    <string name="find_recipes_with_this_product">Find recipes with this product</string>
+    <string name="e_g_appartment_cottage_camp">e.g. Appartment, Cottage, Camp</string>
+    <string name="enter_a_name_of_a_shopping_list">Enter a name of a shopping list</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_a_product_name">Enter a product name</string>
+    <string name="e_g_eggs_tomatoes_milk">e.g. eggs, tomatoes, milk</string>
 </resources>

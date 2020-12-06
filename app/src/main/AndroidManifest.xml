@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/main_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFood">
-        <activity android:name=".storage.ScannerActivity"></activity>
+        <activity android:name=".tobuy.ShoppingListActivity"/>
+        <activity android:name=".storage.ScannerActivity"/>
         <activity android:name=".login.ResetPasswordActivity" />
         <activity
             android:name=".MainActivity"
