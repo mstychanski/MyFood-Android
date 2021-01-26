@@ -1,4 +1,4 @@
-package com.android.myfood.storage.item
+package com.android.myfood.home.storage.item
 
 import android.graphics.*
 import android.graphics.drawable.Drawable
@@ -41,7 +41,7 @@ class SwipeBackgroundHelper {
         }
 
         private fun willActionBeTriggered(dX: Float, viewWidth: Int): Boolean {
-            return Math.abs(dX) >= viewWidth / Companion.THRESHOLD
+            return Math.abs(dX) >= viewWidth / THRESHOLD
         }
         private fun paintDrawCommand(drawCommand: DrawCommand, canvas: Canvas, dX: Float, viewItem: View) {
             drawBackground(canvas, viewItem, dX, drawCommand.backgroundColor)
@@ -72,7 +72,7 @@ class SwipeBackgroundHelper {
 
         private fun drawIcon(canvas: Canvas, viewItem: View, dX: Float, icon: Drawable) {
             val topMargin = calculateTopMargin(icon, viewItem)
-            icon.bounds = getStartContainerRectangle(viewItem, icon.intrinsicWidth, topMargin, Companion.OFFSET_PX, dX)
+            icon.bounds = getStartContainerRectangle(viewItem, icon.intrinsicWidth, topMargin, OFFSET_PX, dX)
             icon.draw(canvas)
         }
 

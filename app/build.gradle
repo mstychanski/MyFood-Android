@@ -51,6 +51,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation 'com.budiyev.android:code-scanner:2.1.0'
-    implementation 'com.beust:klaxon:5.0.1'
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.12.1"
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 
 }

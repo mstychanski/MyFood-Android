@@ -1,4 +1,4 @@
-package com.android.myfood.tobuy
+package com.android.myfood.home.tobuy
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -11,13 +11,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.myfood.Constants
 import com.android.myfood.R
-import com.android.myfood.storage.item.SwipeBackgroundHelper
+import com.android.myfood.home.storage.item.SwipeBackgroundHelper
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*

@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
-import com.android.myfood.HomeActivity
+import com.android.myfood.home.HomeActivity
 import com.android.myfood.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth

@@ -9,7 +9,8 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.android.myfood.HomeActivity
+import com.android.myfood.Credencials
+import com.android.myfood.home.HomeActivity
 import com.android.myfood.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -37,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
         btnSignup = findViewById(R.id.btn_register) as Button
         btnLogin = findViewById(R.id.btn_signin) as Button
         btnReset = findViewById(R.id.btn_reset_password) as Button
-        progressBar = findViewById(R.id.progressBar) as ProgressBar
+        progressBar = findViewById(R.id.progressbar_login) as ProgressBar
 
         auth = FirebaseAuth.getInstance()
 
@@ -73,7 +74,8 @@ class LoginActivity : AppCompatActivity() {
                                 Toast.makeText(this@LoginActivity,getString(R.string.auth_failed),Toast.LENGTH_LONG).show()
                             }
                         }else{
-                            startActivity(Intent(this@LoginActivity,HomeActivity::class.java))
+                            Credencials.USER_ID = auth!!.currentUser?.uid!!
+                            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                             finish()
                         }
                     })

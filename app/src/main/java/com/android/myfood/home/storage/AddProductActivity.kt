@@ -1,4 +1,4 @@
-package com.android.myfood.storage
+package com.android.myfood.home.storage
 
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
@@ -9,9 +9,9 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.android.myfood.Constants.DATABASE_ITEMS
-import com.android.myfood.HomeActivity
 import com.android.myfood.R
-import com.android.myfood.storage.model.StorageItem
+import com.android.myfood.home.HomeActivity
+import com.android.myfood.home.storage.model.StorageItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_add_product.*
@@ -23,9 +23,9 @@ class AddProductActivity : AppCompatActivity() {
 
 
     val calendar = Calendar.getInstance()
-    val year = calendar.get(Calendar.YEAR)
-    val month = calendar.get(Calendar.MONTH)
-    val day = calendar.get(Calendar.DAY_OF_MONTH)
+//    val year = calendar.get(Calendar.YEAR)
+//    val month = calendar.get(Calendar.MONTH)
+//    val day = calendar.get(Calendar.DAY_OF_MONTH)
 
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -33,7 +33,7 @@ class AddProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_product)
 
-
+        val extras = intent.extras
 
         val date = OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)
@@ -43,10 +43,10 @@ class AddProductActivity : AppCompatActivity() {
         }
 
         form_expiry_date.setOnClickListener {
-      DatePickerDialog(this, date, calendar
-              .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-              calendar.get(Calendar.DAY_OF_MONTH)).show()
-  }
+             DatePickerDialog(this, date, calendar
+                     .get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                     calendar.get(Calendar.DAY_OF_MONTH)).show()
+        }
 
         btn_save.setOnClickListener {
 
@@ -61,7 +61,7 @@ class AddProductActivity : AppCompatActivity() {
                     when (checkedUnit) {
                         R.id.form_unit_gram -> "grams"
                         R.id.form_unit_amount -> "pieces"
-                        R.id.form_unit_ml-> "milliliters"
+                        R.id.form_unit_ml -> "milliliters"
                         else -> ""
                     }
 
@@ -103,10 +103,14 @@ class AddProductActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        if(intent.extras != null)
+
+        if(extras != null)
         {
-            form_name.hint= intent.getStringExtra("Name")
-            form_weight.hint = intent.getStringExtra("Weight")
+            val toastText = extras.getString("Toast")
+            Toast.makeText(this, toastText, Toast.LENGTH_SHORT).show()
+            if(extras.getBoolean("IsFound"))
+                form_name.setText(extras.getString("Name"))
+            //form_weight.hint = intent.getStringExtra("Weight")
 
 //            val unit = intent.getStringExtra("Unit")
 //
@@ -122,9 +126,8 @@ class AddProductActivity : AppCompatActivity() {
 
 
         }
-
-
     }
+
 
     private fun updateForm() {
         val myFormat = "yyyy-MM-dd"

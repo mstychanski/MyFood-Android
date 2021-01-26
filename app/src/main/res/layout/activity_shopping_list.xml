@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -70,15 +71,14 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
         android:id="@+id/btn_new_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:focusableInTouchMode="false"
-        android:background="@color/light_green"
         android:src="@drawable/ic_baseline_add"
-        android:tint="@color/white"/>
+        app:tint="@color/white"/>
 
 </RelativeLayout>

@@ -1,17 +1,14 @@
-package com.android.myfood.tobuy
+package com.android.myfood.home.tobuy
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.myfood.Constants
 import com.android.myfood.R
-import com.android.myfood.storage.StorageAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_shopping_list.*

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".HomeActivity">
+    tools:context=".home.HomeActivity">
 
     <LinearLayout
         android:id="@+id/app_bar"
@@ -30,7 +30,7 @@
         <FrameLayout
             android:id="@+id/fl_wrapper"
             android:layout_below="@+id/app_bar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/bottom_navigation" />
 

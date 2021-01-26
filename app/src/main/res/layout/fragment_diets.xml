@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".diets.DietsFragment"
+    tools:context=".home.diets.DietsFragment"
     android:orientation="vertical"
     android:layout_margin="8dp">
 
@@ -13,18 +13,60 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="160dp"
+        <LinearLayout
+            android:layout_width="180dp"
             android:layout_height="96dp"
-            app:cornerRadius="15dp"
             android:layout_margin="8dp"
-            android:backgroundTint="#FF3C69"/>
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="160dp"
+            android:padding="8dp"
+            android:background="@drawable/button_bg"
+            android:backgroundTint="#FF3C69"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_food"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explore Recipes"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="180dp"
             android:layout_height="96dp"
-            app:cornerRadius="15dp"
             android:layout_margin="8dp"
-            android:backgroundTint="#2180F3"/>
+            android:padding="8dp"
+            android:background="@drawable/button_bg"
+            android:backgroundTint="#2180F3"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_plan"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get a meal plan"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -37,52 +79,86 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="My meal plan"/>
+            android:text="My meal plan"
+            android:textSize="16sp"
+            android:layout_gravity="center_vertical"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:gravity="right"/>
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_create"
+            app:fabCustomSize="32dp"
+            app:tint="@color/white"
+            />
+
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         >
 
         <com.google.android.material.button.MaterialButton
+
+            android:text="M"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
         <com.google.android.material.button.MaterialButton
+
+            android:text="T"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
         <com.google.android.material.button.MaterialButton
+
+            android:text="W"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
         <com.google.android.material.button.MaterialButton
+
+            android:text="T"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
         <com.google.android.material.button.MaterialButton
+
+            android:text="F"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
         <com.google.android.material.button.MaterialButton
+
+            android:text="S"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
         <com.google.android.material.button.MaterialButton
+
+            android:text="S"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
     </com.google.android.material.button.MaterialButtonToggleGroup>

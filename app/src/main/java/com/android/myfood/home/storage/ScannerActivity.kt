@@ -1,12 +1,15 @@
-package com.android.myfood.storage
+package com.android.myfood.home.storage
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Toast
-import com.android.myfood.R
-import com.beust.klaxon.Parser
+import androidx.core.view.isVisible
 
+import com.android.myfood.R
+import com.android.myfood.home.storage.model.FoodFactsProduct
 import com.budiyev.android.codescanner.AutoFocusMode
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.CodeScannerView
@@ -15,9 +18,8 @@ import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import com.google.gson.Gson
 
-import com.google.gson.JsonObject
-
 import com.squareup.okhttp.*
+import kotlinx.android.synthetic.main.activity_scanner.*
 import org.json.JSONObject
 import java.io.IOException
 
@@ -26,9 +28,9 @@ import java.io.IOException
 class ScannerActivity : AppCompatActivity() {
 
     private lateinit var codeScanner: CodeScanner
-    private lateinit var productName: String
-    private lateinit var productAmount: String
-    var newProduct: FetchedProduct ? = null
+
+    var scannedProduct : FoodFactsProduct ? = null
+    var toastText : String ? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,20 +50,9 @@ class ScannerActivity : AppCompatActivity() {
 
         // Callbacks
         codeScanner.decodeCallback = DecodeCallback {
-            runOnUiThread {
-                Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
-                val intent = Intent(this@ScannerActivity, AddProductActivity::class.java)
-                requestDataAPI(it.text)
-                if(newProduct != null)
-                {
-                    intent.putExtra("Name", newProduct?.name)
-                    intent.putExtra("Amount", newProduct?.net_weight_value)
-                    intent.putExtra("Unit", newProduct?.net_weight_unit)
-                }
 
-                startActivity(intent)
-                finish()
-            }
+            requestDataAPI(it.text)
+
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
             runOnUiThread {
@@ -86,6 +77,9 @@ class ScannerActivity : AppCompatActivity() {
     }
 
     private fun requestDataAPI(barcode: String){
+
+
+
         val url = "https://us.openfoodfacts.org/api/v0/product/$barcode.json"
         val request = Request.Builder().url(url).build()
 
@@ -97,26 +91,45 @@ class ScannerActivity : AppCompatActivity() {
                 println("Failed to execute request")
             }
 
-            override fun onResponse(response: Response?) {
-                val body = response?.body()?.string()
-                println(body)
+            override fun onResponse(response: Response) {
+                if(response.isSuccessful) {
+                            val body = response.body().string()
 
-                var map: Map<String, Any> = HashMap()
-                map = Gson().fromJson(body, map.javaClass)
 
-                println("TEST: "+map)
-                //newProduct?.name = map.
+                            scannedProduct = FoodFactsProduct.fromJson(body.toString())
+                            //Toast.makeText(this@ScannerActivity, scannedProduct!!.product?.productName as String, Toast.LENGTH_SHORT).show()
+                        }
+                else{
+                    Log.e("in ", " response is not successful" )
+                }
+                val intent = Intent(this@ScannerActivity, AddProductActivity::class.java)
+                if(scannedProduct != null) {
+                    toastText = if (scannedProduct?.status!! == 1) {
+                        if(scannedProduct?.product?.productName == null){
+                            "Product not found!"
+                        } else {
+                            intent.putExtra("Name", scannedProduct?.product?.productName.toString())
+                            intent.putExtra("IsFound", true)
+                            "${scannedProduct?.product?.productName.toString()} found!"
+                        }
+                    } else
+                        "Product not found!"
+
+
+                    intent.putExtra("Toast", toastText)
+                }
+
+
+                startActivity(intent)
 
             }
 
         })
-        println("TUTAJ:"+newProduct)
+
+
     }
+
+
 
 }
 
-data class FetchedProduct (
-    var name: String,
-    var net_weight_value: String,
-    var net_weight_unit: String
-)

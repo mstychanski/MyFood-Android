@@ -4,6 +4,7 @@
     package="com.android.myfood">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,25 +13,27 @@
         android:roundIcon="@mipmap/main_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFood">
-        <activity android:name=".tobuy.ShoppingListActivity"/>
-        <activity android:name=".storage.ScannerActivity"/>
-        <activity android:name=".login.ResetPasswordActivity" />
+        <activity android:name=".home.tobuy.ShoppingListActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".home.storage.ScannerActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".login.ResetPasswordActivity" android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.RegisterActivity" />
-        <activity android:name=".login.WelcomeActivity" />
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".login.RegisterActivity" android:screenOrientation="portrait" />
+        <activity android:name=".login.WelcomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".login.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".home.HomeActivity" android:screenOrientation="portrait"/>
         <activity
-            android:name=".storage.AddProductActivity"
-            android:noHistory="true"/>
+            android:name=".home.storage.AddProductActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

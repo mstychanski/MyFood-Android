@@ -1,4 +1,4 @@
-package com.android.myfood.storage.model
+package com.android.myfood.home.storage.model
 
 data class StorageItem(
         val name:         String? = null,

@@ -1,10 +1,12 @@
-package com.android.myfood.storage
+package com.android.myfood.home.storage
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.graphics.Canvas
+import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,11 +17,14 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.myfood.Constants
+import com.android.myfood.Credencials
 import com.android.myfood.R
-import com.android.myfood.storage.item.SwipeBackgroundHelper
-import com.android.myfood.storage.model.StorageItem
+import com.android.myfood.home.storage.item.SwipeBackgroundHelper
+import com.android.myfood.home.storage.model.StorageItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_add_product.*
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.dialog_product_info.*
 import kotlinx.android.synthetic.main.dialog_product_info.view.*
 import kotlinx.android.synthetic.main.fragment_storage.*
@@ -33,14 +38,15 @@ class StorageFragment : Fragment(), StorageAdapter.OnItemClickListener {
     var itemList : ArrayList<StorageItem> ? = null
     private var ref : DatabaseReference ? = null
 
-    var mRecyclerView : RecyclerView? =null
+    var mRecyclerView : RecyclerView? = null
 
     lateinit var dialogBuilder: AlertDialog.Builder
     lateinit var dialog: AlertDialog
 
-    var uid: String ? = null
+    var filterStatus: String? = ""
 
-    private var adapter: StorageAdapter ? = null
+
+    private var adapter: StorageAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -52,6 +58,7 @@ class StorageFragment : Fragment(), StorageAdapter.OnItemClickListener {
             savedInstanceState: Bundle?
 
     ): View? {
+
 
         fragmentView= LayoutInflater.from(activity).inflate(R.layout.fragment_storage, container, false)
 
@@ -67,17 +74,12 @@ class StorageFragment : Fragment(), StorageAdapter.OnItemClickListener {
 
 
 
-
-
-        if(FirebaseAuth.getInstance().getCurrentUser() != null ) {
-            uid = FirebaseAuth.getInstance().currentUser?.uid
-        }
-        ref = FirebaseDatabase.getInstance().getReference("Users").child(uid!!).child(Constants.DATABASE_ITEMS)
+        ref = FirebaseDatabase.getInstance().getReference("Users").child(Credencials.USER_ID).child(Constants.DATABASE_ITEMS)
 
 
         ref?.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                Log.d(TAG, p0.getMessage())
             }
 
             override fun onDataChange(p0: DataSnapshot) {
@@ -96,11 +98,15 @@ class StorageFragment : Fragment(), StorageAdapter.OnItemClickListener {
                     }
 
                     adapter = StorageAdapter(context!!, itemList!!, this@StorageFragment)
+                    adapter!!.showListByCatagory("all")
 
+                    mRecyclerView?.addItemDecoration(MemberItemDecoration())
                     mRecyclerView?.setAdapter(adapter)
 
                 }
 
+                progressbar_storage?.visibility = View.GONE
+                recycler_view?.visibility=View.VISIBLE
             }
         })
 
@@ -109,12 +115,45 @@ class StorageFragment : Fragment(), StorageAdapter.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recycler_view.visibility = View.GONE;
+
 
         btn_add.setOnClickListener {
             val intent = Intent(this.activity, AddProductActivity::class.java)
             startActivity(intent)
         }
+
+        toggle_group.setOnClickListener {
+
+            val checkedUnit = form_unit_type.checkedButtonId
+            val unit =
+                    when (checkedUnit) {
+                        R.id.toggle_freezer -> "freezer"
+                        R.id.toggle_fridge -> "fridge"
+                        R.id.toggle_pantry-> "pantry"
+                        else -> "all"
+                    }
+
+        }
+        val toggleClickListener = View.OnClickListener {
+
+            val checkedUnit = toggle_group.checkedButtonId
+                when (checkedUnit) {
+                    R.id.toggle_freezer -> adapter!!.showListByCatagory("freezer")
+                    R.id.toggle_fridge -> adapter!!.showListByCatagory("fridge")
+                    R.id.toggle_pantry-> adapter!!.showListByCatagory("pantry")
+                    else -> adapter!!.showListByCatagory("all")
+                }
+        }
+
+        toggle_all.setOnClickListener(toggleClickListener)
+        toggle_freezer.setOnClickListener(toggleClickListener)
+        toggle_fridge.setOnClickListener(toggleClickListener)
+        toggle_pantry.setOnClickListener(toggleClickListener)
     }
+
+
+
 
 
     var itemTouchHelperCallback: ItemTouchHelper.SimpleCallback =
@@ -189,5 +228,17 @@ class StorageFragment : Fragment(), StorageAdapter.OnItemClickListener {
 
             AlertDialog.dismiss()
         }
+    }
+
+    inner class MemberItemDecoration : RecyclerView.ItemDecoration ()
+    {
+
+        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+            // only for the last one
+            if (parent.getChildAdapterPosition(view) == parent.adapter!!.itemCount!! - 1) {
+                outRect.bottom = 120/* bottom margin after last item */
+            }
+        }
+
     }
 }
